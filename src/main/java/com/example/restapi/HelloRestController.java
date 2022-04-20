@@ -3,6 +3,7 @@ package com.example.restapi;
  * import the springframework bind annotations
  */
 
+import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -25,6 +26,11 @@ public class HelloRestController {
     @GetMapping("/param/{name}")
     public String sayHelloParam(@PathVariable String name) {
         return "Hello " + name + " From BridgeLabz";
+    }
+
+    @PostMapping("/post")
+    public String userData(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
     }
 
 }
